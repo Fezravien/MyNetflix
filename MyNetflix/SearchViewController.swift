@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import AVFoundation
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -64,7 +65,19 @@ extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // movie item을 가지고 playerViewControler를 띄워서 전달해줘야한다
         // presenting player vc
+        
         let movie = movies[indexPath.item]
+        let url = URL(string: movie.previewURL)!
+        let item = AVPlayerItem(url: url)
+        
+        let sb = UIStoryboard(name: "Player", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+        // default = modal
+        vc.modalPresentationStyle = .fullScreen
+                
+        vc.player.replaceCurrentItem(with: item)
+        present(vc, animated: false, completion: nil)
+        
         
     }
 }
