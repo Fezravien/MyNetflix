@@ -13,6 +13,14 @@
 		BAAAEFDC24C9C68D000937AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDA24C9C68D000937AB /* Main.storyboard */; };
 		BAAAEFDE24C9C68F000937AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDD24C9C68F000937AB /* Assets.xcassets */; };
 		BAAAEFE124C9C68F000937AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */; };
+		BAAAEFEB24C9C7BA000937AB /* AppTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFEA24C9C7BA000937AB /* AppTabbarController.swift */; };
+		BAAAEFED24C9C7EC000937AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */; };
+		BAAAEFEF24C9C813000937AB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFEE24C9C813000937AB /* SearchViewController.swift */; };
+		BAAAEFF124C9C82B000937AB /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */; };
+		BAAAEFF324C9C845000937AB /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF224C9C845000937AB /* PlayerViewController.swift */; };
+		BAAAEFF524C9C85E000937AB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF424C9C85E000937AB /* PlayerView.swift */; };
+		BAAAEFF724C9C8E2000937AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */; };
+		BAAAEFF924C9C8F6000937AB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFF824C9C8F6000937AB /* Player.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		BAAAEFDD24C9C68F000937AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAAEFE024C9C68F000937AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAAEFE224C9C68F000937AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAAAEFEA24C9C7BA000937AB /* AppTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabbarController.swift; sourceTree = "<group>"; };
+		BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BAAAEFEE24C9C813000937AB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
+		BAAAEFF224C9C845000937AB /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		BAAAEFF424C9C85E000937AB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAAAEFF824C9C8F6000937AB /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,14 @@
 				BAAAEFDD24C9C68F000937AB /* Assets.xcassets */,
 				BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */,
 				BAAAEFE224C9C68F000937AB /* Info.plist */,
+				BAAAEFEA24C9C7BA000937AB /* AppTabbarController.swift */,
+				BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */,
+				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
+				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
+				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
+				BAAAEFF424C9C85E000937AB /* PlayerView.swift */,
+				BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */,
+				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
 			);
 			path = MyNetflix;
 			sourceTree = "<group>";
@@ -126,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAAEFE124C9C68F000937AB /* LaunchScreen.storyboard in Resources */,
+				BAAAEFF724C9C8E2000937AB /* LaunchScreen.storyboard in Resources */,
+				BAAAEFF924C9C8F6000937AB /* Player.storyboard in Resources */,
 				BAAAEFDE24C9C68F000937AB /* Assets.xcassets in Resources */,
 				BAAAEFDC24C9C68D000937AB /* Main.storyboard in Resources */,
 			);
@@ -138,7 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAAAEFF524C9C85E000937AB /* PlayerView.swift in Sources */,
+				BAAAEFEF24C9C813000937AB /* SearchViewController.swift in Sources */,
+				BAAAEFF324C9C845000937AB /* PlayerViewController.swift in Sources */,
+				BAAAEFED24C9C7EC000937AB /* HomeViewController.swift in Sources */,
 				BAAAEFD924C9C68D000937AB /* ViewController.swift in Sources */,
+				BAAAEFF124C9C82B000937AB /* RecommendListViewController.swift in Sources */,
+				BAAAEFEB24C9C7BA000937AB /* AppTabbarController.swift in Sources */,
 				BAAAEFD524C9C68D000937AB /* AppDelegate.swift in Sources */,
 				BAAAEFD724C9C68D000937AB /* SceneDelegate.swift in Sources */,
 			);
