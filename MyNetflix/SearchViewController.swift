@@ -9,8 +9,12 @@
 import UIKit
 import Kingfisher
 import AVFoundation
+import FirebaseDatabase
 
 class SearchViewController: UIViewController {
+    
+    let db = Database.database().reference().child("searchHistory")
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
@@ -131,12 +135,16 @@ extension SearchViewController: UISearchBarDelegate {
         // 디코딩 + 파싱 호출
         SearchAPI.search(searchTerm) { movies in
             // CollectionView로 표현하기
-            print("---> 몇개?:  \(movies.count), 첫 번째: \(movies.first?.titles)")
+            //print("---> 몇개?:  \(movies.count), 첫 번째: \(movies.first?.titles)")
             // GCD
             DispatchQueue.main.async {
                 self.movies = movies
                 // 스레드 크레쉬 발생 -- Main Thread Checker: UI API called on a background thread
                 self.resultCollectionView.reloadData()
+                
+                // rounded() -- 소수점 버리기
+                let timestamp: Double = Date().timeIntervalSince1970.rounded()
+                self.db.childByAutoId().setValue(["term": searchTerm, "timestamp": timestamp])
             }
             
         }

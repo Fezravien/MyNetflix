@@ -15,6 +15,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var controlView: UIView!
     @IBOutlet weak var playButton: UIButton!
     
+    
     let player = AVPlayer()
     
     
@@ -61,7 +62,7 @@ class PlayerViewController: UIViewController {
     
 
     @IBAction func closeButtonTapped(_ sender: Any) {
-        //reset()
+        reset()
         dismiss(animated: false, completion: nil)
     }
 }

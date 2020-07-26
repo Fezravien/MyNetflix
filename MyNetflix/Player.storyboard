@@ -22,6 +22,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6e-0G-PhO" userLabel="Control View">
                                 <rect key="frame" x="44" y="0.0" width="808" height="414"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQk-IV-lb3">
+                                        <rect key="frame" x="762" y="40" width="26" height="25.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="nT0-Zx-f8y" eventType="touchUpInside" id="eFa-en-IXO"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bO8-vZ-dOz" userLabel="Play Button">
                                         <rect key="frame" x="384" y="187" width="40" height="40"/>
                                         <constraints>
@@ -37,16 +47,6 @@
                                         </state>
                                         <connections>
                                             <action selector="togglePlaybutton:" destination="nT0-Zx-f8y" eventType="touchUpInside" id="OlC-ek-6mi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQk-IV-lb3">
-                                        <rect key="frame" x="762" y="40" width="26" height="25.5"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="xmark" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="closeButtonTapped:" destination="nT0-Zx-f8y" eventType="touchUpInside" id="eFa-en-IXO"/>
                                         </connections>
                                     </button>
                                 </subviews>
