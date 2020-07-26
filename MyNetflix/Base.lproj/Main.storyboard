@@ -445,18 +445,62 @@
         <!--저장한 컨텐츠 목록-->
         <scene sceneID="L3D-7K-uCh">
             <objects>
-                <viewController id="Fb1-pI-1N3" userLabel="저장한 컨텐츠 목록" sceneMemberID="viewController">
+                <viewController id="Fb1-pI-1N3" userLabel="저장한 컨텐츠 목록" customClass="HistoryViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxC-y7-zS1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Pv-T6-Bbw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="86" id="h70-85-R7O" customClass="HistoryCell" customModule="MyNetflix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="86"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h70-85-R7O" id="96Z-uW-K5D">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1By-yb-oqq">
+                                                    <rect key="frame" x="18" y="32.5" width="55" height="21"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1By-yb-oqq" firstAttribute="centerY" secondItem="96Z-uW-K5D" secondAttribute="centerY" id="0zV-PM-006"/>
+                                                <constraint firstItem="1By-yb-oqq" firstAttribute="leading" secondItem="96Z-uW-K5D" secondAttribute="leading" constant="18" id="Vnh-8X-5Fi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="searchTerm" destination="1By-yb-oqq" id="iJK-VQ-dTs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fb1-pI-1N3" id="vdX-v1-GCK"/>
+                                    <outlet property="delegate" destination="Fb1-pI-1N3" id="heN-Oj-Luo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g1K-3K-hTQ" firstAttribute="bottom" secondItem="1Pv-T6-Bbw" secondAttribute="bottom" id="6vm-0a-HEU"/>
+                            <constraint firstItem="1Pv-T6-Bbw" firstAttribute="top" secondItem="g1K-3K-hTQ" secondAttribute="top" id="ZSO-wn-TYP"/>
+                            <constraint firstItem="1Pv-T6-Bbw" firstAttribute="leading" secondItem="g1K-3K-hTQ" secondAttribute="leading" id="lEQ-Z8-H1T"/>
+                            <constraint firstItem="g1K-3K-hTQ" firstAttribute="trailing" secondItem="1Pv-T6-Bbw" secondAttribute="trailing" id="rf5-TL-qZv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g1K-3K-hTQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="지정한 컨텐츠 목록" image="square.and.arrow.down.fill" catalog="system" id="hMm-tM-SI4" userLabel="저정한 컨텐츠 목록"/>
+                    <connections>
+                        <outlet property="tableView" destination="1Pv-T6-Bbw" id="SA9-me-GaF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maY-DR-hp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6538" y="45"/>
+            <point key="canvasLocation" x="6537.68115942029" y="44.866071428571423"/>
         </scene>
         <!--더보기-->
         <scene sceneID="71X-tf-fne">
