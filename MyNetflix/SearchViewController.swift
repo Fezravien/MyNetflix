@@ -21,24 +21,26 @@ class SearchViewController: UIViewController {
     // MVVM 패턴에서 벗어남...
     // 가지고 있는것 보다 ViewModel을 통해 가져오는게 좋다
     // 우선 이렇게 구현해본다.
+    // 리팩토링 시 새로운 파일에 MVVM의 model로 구현 (데이터 저장소)
     var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 extension SearchViewController: UICollectionViewDataSource {
     
-    // 몇개 넘어오니
+    // cell을 몇개 넘어오는지
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // search 후 넘어온 영상의 개수
         return movies.count
     }
     
-    // 어떻게 표현할꺼니
+    // cell을 어떻게 표현할껀지
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        // search view에 image을 올릴것이다. -- ResultCell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as? ResultCell else {
             return UICollectionViewCell()
         }
@@ -50,19 +52,20 @@ extension SearchViewController: UICollectionViewDataSource {
         // imagepath(string) -> image 변환
         // thumbnailPath 주소로 네트워킹해서 이미지를 가져온 후 이미지를 UIImage로 변환해줘야함
         // 대안 : 외부 코드 가져다 쓰기
-        // SPM(Swift Package Manager), Cocoa Pod, Carthage -- 외부코드를 가져올 수 있다.
+        // SPM(Swift Package Manager), CocoaPods, Carthage -- 외부코드를 가져올 수 있다.
         
         cell.movieThumbnail.kf.setImage(with: url)
         
+        // 시험용 cell - red
         cell.backgroundColor = .red
         return cell
     }
 }
 
 class ResultCell: UICollectionViewCell {
+    // cell의 image
     @IBOutlet weak var movieThumbnail: UIImageView!
 }
-
 
 // 클릭시 반응
 extension SearchViewController: UICollectionViewDelegate{
@@ -74,22 +77,28 @@ extension SearchViewController: UICollectionViewDelegate{
         let url = URL(string: movie.previewURL)!
         let item = AVPlayerItem(url: url)
         
+        // Player storyboard로 연결
+        // bundle? -- 스토리 보드 파일과 관련 리소스가 포함 된 번들
         let sb = UIStoryboard(name: "Player", bundle: nil)
+        
+        // 왜 PlayerViewController 다운캐스팅할까?
+        // -> sb가 UIViewController 타입이라 뷰에 쓸라면 PlayerViewController 다운캐스팅해서 맞춰야함
         let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+        
         // default = modal
         vc.modalPresentationStyle = .fullScreen
-                
+        
+        // PlayerViewController 타입으로 PlayerViewController에서 데이터(item)을 바꿔준다
+        // item을 플레이어에 보여준다
         vc.player.replaceCurrentItem(with: item)
         present(vc, animated: false, completion: nil)
-        
-        
     }
 }
 
 // 사이즈 조정
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     // 3열로 만들고 싶다.
-    // 이미지 7 : 10
+    // 이미지 7 : 10 비율
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Min spacing -- 아이템간, 라인간 간격
         // Section Insets -- 뷰의 좌우, 위아래 간격
@@ -97,6 +106,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let margin: CGFloat = 8
         let itemSpacing: CGFloat = 10
         
+//      Frame = 슈퍼뷰(상위뷰)의 좌표계에서 위치와 크기를 나타낸다.
+//      Bounds = 자기자신의 좌표계에서 위치와 크기를 나타낸다.
         let width = (collectionView.bounds.width - margin * 2 - itemSpacing * 2) / 3
         let height = width * 10/7
         
@@ -108,12 +119,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
 // Search Bar에서 일어나는 결과들을 ViewControler에게 위임시켜서 거기에 해당하는 일들을 ViewControler한태 담당시키기
 // 클릭시 반응을 가지고 작업하려면 ViewControler와 Delegate 연결 시켜줘야함
-
+// 검색어를 입력하고 버튼 클릭시 ViewController에게 알려주는 메소드
 extension SearchViewController: UISearchBarDelegate {
-    // 검색어를 입력하고 버튼 클릭시 ViewControler에게 알려주는 메소드
     
-    // 키보드 내리기
+//  키보드 내리기
     private func dismissKeyboard(){
+        // resign: 물러나다, 사임히다
+        // 첫번째 응답에서 물러나라!
         searchBar.resignFirstResponder()
     }
     
@@ -122,6 +134,7 @@ extension SearchViewController: UISearchBarDelegate {
         
         // 클릭 시 키보드 내리기
         dismissKeyboard()
+        
         
         // 검색어 있는지 없는지 확인
         guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else {return}
@@ -144,12 +157,14 @@ extension SearchViewController: UISearchBarDelegate {
                 
                 // rounded() -- 소수점 버리기
                 let timestamp: Double = Date().timeIntervalSince1970.rounded()
+                
+                // database에 id랜덤으로 생성하고 값은 시간으로 넣기
                 self.db.childByAutoId().setValue(["term": searchTerm, "timestamp": timestamp])
             }
             
         }
         
-        print("---> 검색어: \(searchBar)")
+        //print("---> 검색어: \(searchBar)")
     }
 }
 
@@ -157,7 +172,19 @@ extension SearchViewController: UISearchBarDelegate {
 class SearchAPI {
     // type 메소드
     // @escaping -- completion안에 있는 코드 블럭이 메소드 밖에서 실행될 수도 있다.
+    // 프로퍼티를 타입 자체와 연결할 수도 있다 이러한 프로퍼티를 Type Property라고 한다.
+    // 타입 프로퍼티는 모든 타입이 사용할 수 있는 상수 프로퍼티(constants property) 또는 글로벌 변수 프로퍼티와 같이 특정 타입의 모든 인스턴스에 공통적인 값을 정의하는데 유용
+
     static func search (_ term: String, completion: @escaping ([Movie]) -> Void){
+//        - default
+//        디스크 지속(disk-persisted) 전역 캐시, 자격 증명(credential)과
+//        쿠기 저장 객체를 사용하는 기본 구성 객체(default configuration object)를 생성합니다.
+//        - ephemeral
+//        모든 세션관련 데이터가 메모리에 저장된다는 점을 제외하고는
+//        기본 구성(default configuration)과 다릅니다. 비공개(private) 새션이라고 생각하세요.
+//        - background
+//        새션은 업로드와 다운로드를 백그라운드에서 이행합니다.
+//        앱 그 자체가 일시중지(suspended) 되거나 시스템에 의해 종료되는(terminated by the system) 경우에도 전송이 계속됩니다.
         let session = URLSession(configuration: .default)
         
         var urlComponents = URLComponents(string: "https://itunes.apple.com/search?")!
@@ -174,7 +201,7 @@ class SearchAPI {
         let dataTask = session.dataTask(with: requestURL) { data, response, error in
             let successRange = 200..<300
             
-            // response 메시지 안에서 statusCoed 저장
+            // response 메시지 안에서 statusCode 저장
             // statusCode가 200 ~ 299 안에 들어가는지 확인
             guard error == nil, let statusCode = (response as? HTTPURLResponse)?.statusCode, successRange.contains(statusCode) else {
                 return completion([])
@@ -185,7 +212,7 @@ class SearchAPI {
             }
             
             // data -> [Movie] -- 데이터 타입을 바꾸기 위해서 파싱이 필요하다. (Codable)
-            let movies = SearchAPI.parseMovies(resultData)
+            let movies = parseMovies(resultData)
             // 리턴이 void이므로 .. 이렇게 넘긴다
             completion(movies)
             

@@ -13,7 +13,6 @@
 		BA4CC0CF24CDA9DB009BEA45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */; };
 		BAAAEFD524C9C68D000937AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFD424C9C68D000937AB /* AppDelegate.swift */; };
 		BAAAEFD724C9C68D000937AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */; };
-		BAAAEFD924C9C68D000937AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFD824C9C68D000937AB /* ViewController.swift */; };
 		BAAAEFDC24C9C68D000937AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDA24C9C68D000937AB /* Main.storyboard */; };
 		BAAAEFDE24C9C68F000937AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDD24C9C68F000937AB /* Assets.xcassets */; };
 		BAAAEFE124C9C68F000937AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		BAAAEFF124C9C82B000937AB /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */; };
 		BAAAEFF324C9C845000937AB /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF224C9C845000937AB /* PlayerViewController.swift */; };
 		BAAAEFF524C9C85E000937AB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFF424C9C85E000937AB /* PlayerView.swift */; };
-		BAAAEFF724C9C8E2000937AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */; };
 		BAAAEFF924C9C8F6000937AB /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFF824C9C8F6000937AB /* Player.storyboard */; };
 		D45A01A06B119B29CC8DBECF /* Pods_MyNetflix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780BA0B90E9AEF1DE81A033D /* Pods_MyNetflix.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +36,6 @@
 		BAAAEFD124C9C68D000937AB /* MyNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAAEFD424C9C68D000937AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BAAAEFD824C9C68D000937AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAAAEFDB24C9C68D000937AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAAAEFDD24C9C68F000937AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAAAEFE024C9C68F000937AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,7 +46,6 @@
 		BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		BAAAEFF224C9C845000937AB /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		BAAAEFF424C9C85E000937AB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAAAEFF824C9C8F6000937AB /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,19 +94,17 @@
 			children = (
 				BAAAEFD424C9C68D000937AB /* AppDelegate.swift */,
 				BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */,
-				BAAAEFD824C9C68D000937AB /* ViewController.swift */,
 				BAAAEFDA24C9C68D000937AB /* Main.storyboard */,
+				BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */,
+				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
+				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
+				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
+				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
 				BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */,
 				BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */,
 				BAAAEFEA24C9C7BA000937AB /* AppTabbarController.swift */,
-				BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */,
-				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
 				BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */,
-				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
-				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
 				BAAAEFF424C9C85E000937AB /* PlayerView.swift */,
-				BAAAEFF624C9C8E2000937AB /* LaunchScreen.storyboard */,
-				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
 				BAAAEFDD24C9C68F000937AB /* Assets.xcassets */,
 				BAAAEFE224C9C68F000937AB /* Info.plist */,
 				BA4CC0CC24CDA75D009BEA45 /* GoogleService-Info.plist */,
@@ -193,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAAEFE124C9C68F000937AB /* LaunchScreen.storyboard in Resources */,
-				BAAAEFF724C9C8E2000937AB /* LaunchScreen.storyboard in Resources */,
 				BAAAEFF924C9C8F6000937AB /* Player.storyboard in Resources */,
 				BAAAEFDE24C9C68F000937AB /* Assets.xcassets in Resources */,
 				BAAAEFDC24C9C68D000937AB /* Main.storyboard in Resources */,
@@ -256,7 +249,6 @@
 				BAAAEFF324C9C845000937AB /* PlayerViewController.swift in Sources */,
 				BAAAEFED24C9C7EC000937AB /* HomeViewController.swift in Sources */,
 				BA4CC0CF24CDA9DB009BEA45 /* HistoryViewController.swift in Sources */,
-				BAAAEFD924C9C68D000937AB /* ViewController.swift in Sources */,
 				BAAAEFF124C9C82B000937AB /* RecommendListViewController.swift in Sources */,
 				BAAAEFEB24C9C7BA000937AB /* AppTabbarController.swift in Sources */,
 				BAAAEFD524C9C68D000937AB /* AppDelegate.swift in Sources */,

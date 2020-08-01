@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecommendListViewController: UIViewController {
 
@@ -40,6 +41,26 @@ extension RecommendListViewController: UICollectionViewDataSource {
         let movie = viewModel.item(at: indexPath.item)
         cell.updateUI(movie: movie)
         return cell
+    }
+}
+
+extension RecommendListViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        SearchAPI.search("Totoro") { movies in
+            guard let awards = movies.first else { return }
+            
+            DispatchQueue.main.async {
+                let url = URL(string: awards.previewURL)!
+                let item = AVPlayerItem(url: url)
+                let sb = UIStoryboard(name: "Player", bundle: nil)
+                let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+                vc.player.replaceCurrentItem(with: item)
+                
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false, completion: nil)
+            }
+        }
     }
 }
 
