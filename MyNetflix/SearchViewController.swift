@@ -230,8 +230,6 @@ class SearchAPI {
             
         }
     }
-    
-    
 }
 
 struct Response: Codable{

@@ -32,6 +32,26 @@
                                             <action selector="closeButtonTapped:" destination="nT0-Zx-f8y" eventType="touchUpInside" id="eFa-en-IXO"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tKM-Xf-DEm" userLabel="Time Slider">
+                                        <rect key="frame" x="8" y="333" width="792" height="31"/>
+                                        <connections>
+                                            <action selector="beginDrag:" destination="nT0-Zx-f8y" eventType="editingDidBegin" id="CDv-nG-h0K"/>
+                                            <action selector="endDrag:" destination="nT0-Zx-f8y" eventType="editingDidEnd" id="JWY-Nr-YTM"/>
+                                            <action selector="seek:" destination="nT0-Zx-f8y" eventType="valueChanged" id="oJs-am-wR6"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYB-Xo-NFQ">
+                                        <rect key="frame" x="8.5" y="373" width="51.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-Gm-16q">
+                                        <rect key="frame" x="748" y="373" width="51.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bO8-vZ-dOz" userLabel="Play Button">
                                         <rect key="frame" x="384" y="187" width="40" height="40"/>
                                         <constraints>
@@ -49,32 +69,10 @@
                                             <action selector="togglePlaybutton:" destination="nT0-Zx-f8y" eventType="touchUpInside" id="OlC-ek-6mi"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tKM-Xf-DEm" userLabel="Time Slider">
-                                        <rect key="frame" x="8" y="340" width="792" height="15"/>
-                                        <connections>
-                                            <action selector="beginDrag:" destination="nT0-Zx-f8y" eventType="editingDidBegin" id="CDv-nG-h0K"/>
-                                            <action selector="endDrag:" destination="nT0-Zx-f8y" eventType="editingDidEnd" id="JWY-Nr-YTM"/>
-                                            <action selector="seek:" destination="nT0-Zx-f8y" eventType="valueChanged" id="oJs-am-wR6"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYB-Xo-NFQ">
-                                        <rect key="frame" x="4.5" y="364" width="55.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-Gm-16q">
-                                        <rect key="frame" x="748" y="364" width="55.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="tKM-Xf-DEm" firstAttribute="top" secondItem="j6e-0G-PhO" secondAttribute="top" constant="340" id="5Ze-NZ-qbh"/>
                                     <constraint firstItem="5Pv-Gm-16q" firstAttribute="top" secondItem="tKM-Xf-DEm" secondAttribute="bottom" constant="10" id="N0n-Br-Odu"/>
-                                    <constraint firstAttribute="bottom" secondItem="tKM-Xf-DEm" secondAttribute="bottom" constant="60" id="Oa9-hL-RZO"/>
                                     <constraint firstItem="tKM-Xf-DEm" firstAttribute="leading" secondItem="j6e-0G-PhO" secondAttribute="leading" constant="10" id="PFB-a5-udT"/>
                                     <constraint firstItem="tKM-Xf-DEm" firstAttribute="leading" secondItem="aYB-Xo-NFQ" secondAttribute="trailing" constant="-50" id="Rcr-Tk-quh"/>
                                     <constraint firstAttribute="trailing" secondItem="tKM-Xf-DEm" secondAttribute="trailing" constant="10" id="XgL-Sc-hsw"/>
@@ -97,11 +95,13 @@
                             <constraint firstItem="EJ9-OO-khc" firstAttribute="trailing" secondItem="Usz-I6-rNT" secondAttribute="trailing" id="d7O-L5-ER1"/>
                             <constraint firstItem="qQk-IV-lb3" firstAttribute="top" secondItem="Usz-I6-rNT" secondAttribute="top" constant="40" id="f6q-tL-HyW"/>
                             <constraint firstItem="Usz-I6-rNT" firstAttribute="trailing" secondItem="qQk-IV-lb3" secondAttribute="trailing" constant="20" id="fDf-Dn-HqP"/>
+                            <constraint firstItem="Usz-I6-rNT" firstAttribute="bottom" secondItem="tKM-Xf-DEm" secondAttribute="bottom" constant="30" id="nYt-ii-UTA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Usz-I6-rNT"/>
                     </view>
                     <navigationItem key="navigationItem" id="ATk-3F-tK1"/>
                     <connections>
+                        <outlet property="closeButton" destination="qQk-IV-lb3" id="8dB-Uf-Hcx"/>
                         <outlet property="controlView" destination="j6e-0G-PhO" id="GFi-eg-w8K"/>
                         <outlet property="currentTimeLabel" destination="aYB-Xo-NFQ" id="VrI-LB-cfX"/>
                         <outlet property="playButton" destination="bO8-vZ-dOz" id="qSz-Eh-Tip"/>

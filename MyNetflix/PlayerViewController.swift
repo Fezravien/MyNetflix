@@ -14,6 +14,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var controlView: UIView!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -100,6 +101,8 @@ class PlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         simplePlayer.play()
+        playButton.isSelected = true
+        dismissAll()
         
     }
     
@@ -107,8 +110,10 @@ class PlayerViewController: UIViewController {
     @IBAction func togglePlaybutton(_ sender: Any) {
         if simplePlayer.isPlaying {
             simplePlayer.pause()
+            updatePlayButton()
         } else {
             simplePlayer.play()
+            updatePlayButton()
         }
     }
         
@@ -133,4 +138,17 @@ extension AVPlayer {
         guard self.currentItem != nil else { return false }
         return self.rate != 0
     }
+}
+
+extension PlayerViewController: UICollectionViewDelegate  {
+    private func dismissAll(){
+        // resign: 물러나다, 사임히다
+        // 첫번째 응답에서 물러나라!
+        playButton.resignFirstResponder()
+        timeSlider.resignFirstResponder()
+        currentTimeLabel.resignFirstResponder()
+        totalDurationLabel.resignFirstResponder()
+        closeButton.resignFirstResponder()
+    }
+    
 }
