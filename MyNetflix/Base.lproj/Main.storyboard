@@ -505,18 +505,76 @@
         <!--더보기-->
         <scene sceneID="71X-tf-fne">
             <objects>
-                <viewController id="zJl-JH-p7i" userLabel="더보기" sceneMemberID="viewController">
+                <viewController id="zJl-JH-p7i" userLabel="더보기" customClass="SeeMoreViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w8r-Qz-N3a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QPV-DP-o1v">
+                                <rect key="frame" x="0.0" y="164" width="414" height="283"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="283" id="Obb-Qe-aEU"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="setupCell" id="DON-tt-K7f" customClass="setupCell" customModule="MyNetflix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DON-tt-K7f" id="bMw-tl-w9h">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 찜한 콘텐츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOn-am-dcO">
+                                                    <rect key="frame" x="20" y="11" width="118" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BOn-am-dcO" secondAttribute="trailing" constant="20" symbolic="YES" id="8WS-Tp-LKT"/>
+                                                <constraint firstItem="BOn-am-dcO" firstAttribute="centerY" secondItem="bMw-tl-w9h" secondAttribute="centerY" id="X3W-2A-AhG"/>
+                                                <constraint firstItem="BOn-am-dcO" firstAttribute="leading" secondItem="bMw-tl-w9h" secondAttribute="leading" constant="20" id="fQz-29-RxJ"/>
+                                                <constraint firstItem="BOn-am-dcO" firstAttribute="top" secondItem="bMw-tl-w9h" secondAttribute="top" constant="11" id="p3t-yb-F4z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="setupTerm" destination="BOn-am-dcO" id="WRv-in-17c"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zJl-JH-p7i" id="1j6-5m-wZ3"/>
+                                    <outlet property="delegate" destination="zJl-JH-p7i" id="A2R-Wz-jXg"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3D-R5-4oC">
+                                <rect key="frame" x="168.5" y="514" width="77" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="d3D-R5-4oC" firstAttribute="centerX" secondItem="FkU-RS-DAK" secondAttribute="centerX" id="2Kz-oq-Vek"/>
+                            <constraint firstItem="QPV-DP-o1v" firstAttribute="leading" secondItem="FkU-RS-DAK" secondAttribute="leading" id="5fC-kp-iok"/>
+                            <constraint firstItem="QPV-DP-o1v" firstAttribute="top" secondItem="FkU-RS-DAK" secondAttribute="top" constant="120" id="E3N-Z0-OEp"/>
+                            <constraint firstItem="FkU-RS-DAK" firstAttribute="bottom" secondItem="d3D-R5-4oC" secondAttribute="bottom" constant="260" id="HC7-W7-SS0"/>
+                            <constraint firstItem="FkU-RS-DAK" firstAttribute="trailing" secondItem="QPV-DP-o1v" secondAttribute="trailing" id="e2u-SY-cij"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FkU-RS-DAK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="더보기" image="gear" catalog="system" id="TTc-s8-yj3" userLabel="더보기"/>
+                    <connections>
+                        <outlet property="tableView" destination="QPV-DP-o1v" id="xKy-IK-bkt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbD-jp-iUc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7567" y="45"/>
+            <point key="canvasLocation" x="7566.666666666667" y="44.866071428571423"/>
         </scene>
         <!--App Tabbar Controller-->
         <scene sceneID="BhI-uE-QOj">
