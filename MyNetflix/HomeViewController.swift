@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
                 let item = AVPlayerItem(url: url)
                 let sb = UIStoryboard(name: "Player", bundle: nil)
                 let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
-                vc.player.replaceCurrentItem(with: item)
+                vc.simplePlayer.replaceCurrentItem(with: item)
                 
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: false, completion: nil)

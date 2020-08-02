@@ -47,6 +47,8 @@ extension RecommendListViewController: UICollectionViewDataSource {
 extension RecommendListViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        // 정적인 이미지
+        // 추후 수정 바람
         SearchAPI.search("Totoro") { movies in
             guard let awards = movies.first else { return }
             
@@ -55,7 +57,7 @@ extension RecommendListViewController:UICollectionViewDelegate{
                 let item = AVPlayerItem(url: url)
                 let sb = UIStoryboard(name: "Player", bundle: nil)
                 let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
-                vc.player.replaceCurrentItem(with: item)
+                vc.simplePlayer.replaceCurrentItem(with: item)
                 
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: false, completion: nil)

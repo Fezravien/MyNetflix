@@ -90,7 +90,7 @@ extension SearchViewController: UICollectionViewDelegate{
         
         // PlayerViewController 타입으로 PlayerViewController에서 데이터(item)을 바꿔준다
         // item을 플레이어에 보여준다
-        vc.player.replaceCurrentItem(with: item)
+        vc.simplePlayer.replaceCurrentItem(with: item)
         present(vc, animated: false, completion: nil)
     }
 }
@@ -148,7 +148,7 @@ extension SearchViewController: UISearchBarDelegate {
         // 디코딩 + 파싱 호출
         SearchAPI.search(searchTerm) { movies in
             // CollectionView로 표현하기
-            //print("---> 몇개?:  \(movies.count), 첫 번째: \(movies.first?.titles)")
+            print("---> 몇개?:  \(movies.count), 첫 번째: \(movies)")
             // GCD
             DispatchQueue.main.async {
                 self.movies = movies
@@ -176,15 +176,6 @@ class SearchAPI {
     // 타입 프로퍼티는 모든 타입이 사용할 수 있는 상수 프로퍼티(constants property) 또는 글로벌 변수 프로퍼티와 같이 특정 타입의 모든 인스턴스에 공통적인 값을 정의하는데 유용
 
     static func search (_ term: String, completion: @escaping ([Movie]) -> Void){
-//        - default
-//        디스크 지속(disk-persisted) 전역 캐시, 자격 증명(credential)과
-//        쿠기 저장 객체를 사용하는 기본 구성 객체(default configuration object)를 생성합니다.
-//        - ephemeral
-//        모든 세션관련 데이터가 메모리에 저장된다는 점을 제외하고는
-//        기본 구성(default configuration)과 다릅니다. 비공개(private) 새션이라고 생각하세요.
-//        - background
-//        새션은 업로드와 다운로드를 백그라운드에서 이행합니다.
-//        앱 그 자체가 일시중지(suspended) 되거나 시스템에 의해 종료되는(terminated by the system) 경우에도 전송이 계속됩니다.
         let session = URLSession(configuration: .default)
         
         var urlComponents = URLComponents(string: "https://itunes.apple.com/search?")!

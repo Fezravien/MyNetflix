@@ -11,6 +11,7 @@
 		BA03BE4324CD402200ACBB63 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */; };
 		BA4CC0CD24CDA75D009BEA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA4CC0CC24CDA75D009BEA45 /* GoogleService-Info.plist */; };
 		BA4CC0CF24CDA9DB009BEA45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */; };
+		BA70769F24D6E51B00DA1A39 /* SimplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA70769E24D6E51B00DA1A39 /* SimplePlayer.swift */; };
 		BAAAEFD524C9C68D000937AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFD424C9C68D000937AB /* AppDelegate.swift */; };
 		BAAAEFD724C9C68D000937AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */; };
 		BAAAEFDC24C9C68D000937AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAAEFDA24C9C68D000937AB /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
 		BA4CC0CC24CDA75D009BEA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		BA70769E24D6E51B00DA1A39 /* SimplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayer.swift; sourceTree = "<group>"; };
 		BAAAEFD124C9C68D000937AB /* MyNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAAEFD424C9C68D000937AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
 				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
 				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
+				BA70769E24D6E51B00DA1A39 /* SimplePlayer.swift */,
 				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
 				BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */,
 				BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA70769F24D6E51B00DA1A39 /* SimplePlayer.swift in Sources */,
 				BAAAEFF524C9C85E000937AB /* PlayerView.swift in Sources */,
 				BAAAEFEF24C9C813000937AB /* SearchViewController.swift in Sources */,
 				BA03BE4324CD402200ACBB63 /* UpComingViewController.swift in Sources */,
