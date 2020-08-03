@@ -70,4 +70,5 @@ class SimplePlayer {
     func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping (CMTime) -> Void) {
         player.addPeriodicTimeObserver(forInterval: forInterval, queue: queue, using: using)
     }
+   
 }

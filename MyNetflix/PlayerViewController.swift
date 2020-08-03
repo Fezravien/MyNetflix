@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class PlayerViewController: UIViewController {
+    var touchScreenCount = 0
     
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var controlView: UIView!
@@ -40,7 +41,7 @@ class PlayerViewController: UIViewController {
             self.updateTime(time: time)
         })
     }
-    
+
     @IBAction func beginDrag(_ sender: UISlider) {
         isSeeking = true
     }
@@ -101,9 +102,7 @@ class PlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         simplePlayer.play()
-        playButton.isSelected = true
-        dismissAll()
-        
+        ControllButtonVisible()
     }
     
     
@@ -131,6 +130,34 @@ class PlayerViewController: UIViewController {
             playButton.isSelected = false
         }
     }
+    
+    @IBAction func touchScreen(_ sender: Any) {
+        if touchScreenCount == 0 {
+            ControllButtonDisVisible()
+            touchScreenCount += 1
+        } else {
+            ControllButtonVisible()
+            touchScreenCount -= 1 
+        }
+    }
+    
+    func ControllButtonVisible(){
+        playButton.isSelected = true
+        playButton.isHidden = true
+        closeButton.isHidden = true
+        timeSlider.isHidden = true
+        currentTimeLabel.isHidden = true
+        totalDurationLabel.isHidden = true
+    }
+    
+    func ControllButtonDisVisible(){
+        playButton.isSelected = false
+        playButton.isHidden = false
+        closeButton.isHidden = false
+        timeSlider.isHidden = false
+        currentTimeLabel.isHidden = false
+        totalDurationLabel.isHidden = false
+    }
 }
 
 extension AVPlayer {
@@ -140,15 +167,4 @@ extension AVPlayer {
     }
 }
 
-extension PlayerViewController: UICollectionViewDelegate  {
-    private func dismissAll(){
-        // resign: 물러나다, 사임히다
-        // 첫번째 응답에서 물러나라!
-        playButton.resignFirstResponder()
-        timeSlider.resignFirstResponder()
-        currentTimeLabel.resignFirstResponder()
-        totalDurationLabel.resignFirstResponder()
-        closeButton.resignFirstResponder()
-    }
-    
-}
+
