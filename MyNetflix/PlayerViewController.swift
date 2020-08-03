@@ -29,6 +29,8 @@ class PlayerViewController: UIViewController {
     // 해당 ViewControler가 메모리에 올라옴
     override func viewDidLoad() {
         super.viewDidLoad()
+        playButton.isSelected = true
+        
         
         simplePlayer.playerViewPlayer(playerView)
         
@@ -133,16 +135,18 @@ class PlayerViewController: UIViewController {
     
     @IBAction func touchScreen(_ sender: Any) {
         if touchScreenCount == 0 {
+            
             ControllButtonDisVisible()
             touchScreenCount += 1
         } else {
+            
             ControllButtonVisible()
             touchScreenCount -= 1 
         }
     }
     
     func ControllButtonVisible(){
-        playButton.isSelected = true
+        updatePlayButton()
         playButton.isHidden = true
         closeButton.isHidden = true
         timeSlider.isHidden = true
@@ -151,7 +155,7 @@ class PlayerViewController: UIViewController {
     }
     
     func ControllButtonDisVisible(){
-        playButton.isSelected = false
+        updatePlayButton()
         playButton.isHidden = false
         closeButton.isHidden = false
         timeSlider.isHidden = false
