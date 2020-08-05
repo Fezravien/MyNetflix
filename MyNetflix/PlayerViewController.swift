@@ -29,11 +29,8 @@ class PlayerViewController: UIViewController {
     // 해당 ViewControler가 메모리에 올라옴
     override func viewDidLoad() {
         super.viewDidLoad()
-        playButton.isSelected = true
-        
-        
+ 
         simplePlayer.playerViewPlayer(playerView)
-        
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
         // CMTime -- seconds, preferrendTimescale 시간과 분할 1초를 10개로 -> 0.1초
@@ -54,7 +51,7 @@ class PlayerViewController: UIViewController {
     
     
     @IBAction func seek(_ sender: UISlider) {
-        // TODO: 시킹 구현
+        // 시킹 구현
         guard let currentItem = simplePlayer.currentItem else {
             return
         }
@@ -67,7 +64,7 @@ class PlayerViewController: UIViewController {
         // CMTime 으로 바꾸기
         let time = CMTime(seconds: seconds, preferredTimescale: 100) // 31.322332332 나오니까 31.32 까지
                 
-            simplePlayer.seek(to: time)
+        simplePlayer.seek(to: time)
     }
     
     func updateTime(time: CMTime) {
@@ -75,13 +72,13 @@ class PlayerViewController: UIViewController {
     
         // currentTime label, totalduration label, slider
         
-        // TODO: 시간정보 업데이트, 심플플레이어 이용해서 수정
+        // 시간정보 업데이트, 심플플레이어 이용해서 수정
         currentTimeLabel.text = secondsToString(sec: simplePlayer.currentTime)   // 3.1234 >> 00:03
         totalDurationLabel.text = secondsToString(sec: simplePlayer.totalDurationTime)  // 39.2045  >> 00:39
         
         if isSeeking == false {
-            // 노래 들으면서 시킹하면, 자꾸 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
-            // TODO: 슬라이더 정보 업데이트
+            // 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
+            // 슬라이더 정보 업데이트
             timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
         }
     }
@@ -99,14 +96,13 @@ class PlayerViewController: UIViewController {
         return .landscapeRight
     }
     
-    
     // 실제로 보여지기 직전에
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        playButton.isSelected = true
         simplePlayer.play()
         ControllButtonVisible()
     }
-    
     
     @IBAction func togglePlaybutton(_ sender: Any) {
         if simplePlayer.isPlaying {
@@ -120,8 +116,8 @@ class PlayerViewController: UIViewController {
         
 
     @IBAction func closeButtonTapped(_ sender: Any) {
-        simplePlayer.reset()
-        dismiss(animated: true, completion: nil)
+        simplePlayer.reset(playerView)
+        dismiss(animated: false, completion: nil)
     }
     
     func updatePlayButton() {
@@ -132,7 +128,8 @@ class PlayerViewController: UIViewController {
             playButton.isSelected = false
         }
     }
-    
+        
+    // 터치 했을때 영상 컨트롤 버튼들 끄고/키기
     @IBAction func touchScreen(_ sender: Any) {
         if touchScreenCount == 0 {
             

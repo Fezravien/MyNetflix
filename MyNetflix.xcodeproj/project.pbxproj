@@ -99,18 +99,18 @@
 				BAAAEFD424C9C68D000937AB /* AppDelegate.swift */,
 				BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */,
 				BAAAEFDA24C9C68D000937AB /* Main.storyboard */,
-				BA528A4624D71E19007D87F1 /* seeMoreViewController.swift */,
 				BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */,
 				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
-				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
-				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
-				BA70769E24D6E51B00DA1A39 /* SimplePlayer.swift */,
-				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
 				BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */,
+				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
+				BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */,
+				BA528A4624D71E19007D87F1 /* seeMoreViewController.swift */,
+				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
+				BAAAEFF224C9C845000937AB /* PlayerViewController.swift */,
+				BA70769E24D6E51B00DA1A39 /* SimplePlayer.swift */,
+				BAAAEFF424C9C85E000937AB /* PlayerView.swift */,
 				BAAAEFDF24C9C68F000937AB /* LaunchScreen.storyboard */,
 				BAAAEFEA24C9C7BA000937AB /* AppTabbarController.swift */,
-				BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */,
-				BAAAEFF424C9C85E000937AB /* PlayerView.swift */,
 				BAAAEFDD24C9C68F000937AB /* Assets.xcassets */,
 				BAAAEFE224C9C68F000937AB /* Info.plist */,
 				BA4CC0CC24CDA75D009BEA45 /* GoogleService-Info.plist */,
@@ -336,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

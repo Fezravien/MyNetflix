@@ -14,56 +14,52 @@ class SimplePlayer {
     
     private let player = AVPlayer()
     
-    func playerViewPlayer(_ play:PlayerView) {
-        play.player = self.player
-    }
-    
-    func reset() {
-        pause()
-        replaceCurrentItem(with: nil)
-    }
-
     var currentTime: Double {
-        // TODO: currentTime 구하기
+        // currentTime 구하기
         return player.currentItem?.currentTime().seconds ?? 0
     }
     
     var totalDurationTime: Double {
-        // TODO: totalDurationTime 구하기
+        // totalDurationTime 구하기
         return player.currentItem?.duration.seconds ?? 0
     }
     
     var isPlaying: Bool {
-        // TODO: isPlaying 구하기
+        // isPlaying 구하기
         return player.isPlaying
     }
     
     var currentItem: AVPlayerItem? {
-        // TODO: currentItem 구하기
+        // currentItem 구하기
         return player.currentItem
     }
     
     init() { }
     
+    func playerViewPlayer(_ play:PlayerView) {
+        play.player = self.player
+    }
+    
+    func reset(_ play: PlayerView) {
+        pause()
+        //play.layer.sublayers = nil
+        play.player = nil
+        replaceCurrentItem(with: nil)
+    }
     
     func pause() {
-        // TODO: pause구현
         player.pause()
     }
     
     func play() {
-        // TODO: play구현
         player.play()
-        
     }
     
     func seek(to time:CMTime) {
-        // TODO: seek구현
         player.seek(to: time)
     }
     
     func replaceCurrentItem(with item: AVPlayerItem?) {
-        // TODO: replace current item 구현
         player.replaceCurrentItem(with: item)
     }
     
