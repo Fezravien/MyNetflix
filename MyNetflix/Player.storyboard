@@ -10,7 +10,7 @@
         <!--Player View Controller-->
         <scene sceneID="TR6-r3-xcG">
             <objects>
-                <viewController storyboardIdentifier="PlayerViewController" id="nT0-Zx-f8y" customClass="PlayerViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerViewController" modalPresentationStyle="fullScreen" id="nT0-Zx-f8y" customClass="PlayerViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sQV-5O-ux5">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKQ-bR-2S0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9q7-Qw-jyh">
+                    <eventButtonMask key="buttonMaskRequired" primary="YES" secondary="YES"/>
                     <connections>
                         <action selector="touchScreen:" destination="nT0-Zx-f8y" id="WU0-An-05z"/>
                     </connections>

@@ -292,7 +292,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-s6-A3j">
+                            <searchBar clipsSubviews="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-s6-A3j">
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <connections>
@@ -318,8 +318,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FOf-LF-8LW">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="FOf-LF-8LW" secondAttribute="bottom" id="4Hm-O9-jbe"/>
                                                 <constraint firstItem="FOf-LF-8LW" firstAttribute="top" secondItem="59v-JL-gWj" secondAttribute="top" id="BWK-dc-wNh"/>
@@ -334,11 +336,13 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="hbZ-TH-XHG" id="U6e-wh-ODz"/>
-                                    <outlet property="delegate" destination="hbZ-TH-XHG" id="4UL-17-h3k"/>
+                                    <outlet property="delegate" destination="hbZ-TH-XHG" id="ghF-Vh-8WI"/>
+                                    <outlet property="dragDelegate" destination="rWk-4a-Cos" id="QWY-TK-Vvt"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Wvn-s2-hdB" firstAttribute="trailing" secondItem="ZUf-s6-A3j" secondAttribute="trailing" id="1Qw-r6-8Ne"/>
                             <constraint firstItem="ZUf-s6-A3j" firstAttribute="top" secondItem="Wvn-s2-hdB" secondAttribute="top" id="4Ky-Z2-4YW"/>
@@ -349,20 +353,31 @@
                             <constraint firstItem="Wvn-s2-hdB" firstAttribute="trailing" secondItem="Oap-Zc-K65" secondAttribute="trailing" id="lib-h2-Nzk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wvn-s2-hdB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rWk-4a-Cos" appends="YES" id="jva-Cp-1oK"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="1Jc-WO-2K5" userLabel="검색"/>
                     <connections>
                         <outlet property="resultCollectionView" destination="Oap-Zc-K65" id="IzU-fy-QY7"/>
                         <outlet property="searchBar" destination="ZUf-s6-A3j" id="VKG-dE-wjA"/>
+                        <outlet property="touchDismiss" destination="rWk-4a-Cos" id="Rgn-Rg-Moe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOm-OV-E6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="rWk-4a-Cos">
+                    <connections>
+                        <action selector="tapToHideKeyboard:" destination="hbZ-TH-XHG" id="fMV-Rq-vj2"/>
+                        <outlet property="delegate" destination="hbZ-TH-XHG" id="XN5-bi-vzh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3134.7826086956525" y="44.866071428571423"/>
         </scene>
         <!--공개예정-->
         <scene sceneID="XNH-Oj-FFQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zR-xL-xv0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="xsw-kg-mYv" userLabel="공개예정" customClass="UpComingViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GK8-TV-XyN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
@@ -438,7 +453,6 @@
                     <tabBarItem key="tabBarItem" title="공개예정" image="play.rectangle.fill" catalog="system" id="YMD-EO-OqC" userLabel="공개예정"/>
                     <size key="freeformSize" width="414" height="1600"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9zR-xL-xv0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4728" y="281"/>
         </scene>
@@ -539,6 +553,7 @@
                                                 <constraint firstItem="BOn-am-dcO" firstAttribute="top" secondItem="bMw-tl-w9h" secondAttribute="top" constant="11" id="p3t-yb-F4z"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="setupTerm" destination="BOn-am-dcO" id="WRv-in-17c"/>
                                         </connections>

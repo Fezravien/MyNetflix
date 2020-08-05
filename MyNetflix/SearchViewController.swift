@@ -12,6 +12,7 @@ import AVFoundation
 import FirebaseDatabase
 
 class SearchViewController: UIViewController {
+    @IBOutlet var touchDismiss: UITapGestureRecognizer!
     
     let db = Database.database().reference().child("searchHistory")
     
@@ -26,6 +27,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }
 
@@ -57,7 +59,7 @@ extension SearchViewController: UICollectionViewDataSource {
         cell.movieThumbnail.kf.setImage(with: url)
         
         // 시험용 cell - red
-        cell.backgroundColor = .red
+        //cell.backgroundColor = .red
         return cell
     }
 }
@@ -70,6 +72,8 @@ class ResultCell: UICollectionViewCell {
 // 클릭시 반응
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
         // movie item을 가지고 playerViewControler를 띄워서 전달해줘야한다
         // presenting player vc
         
@@ -122,6 +126,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 // 검색어를 입력하고 버튼 클릭시 ViewController에게 알려주는 메소드
 extension SearchViewController: UISearchBarDelegate {
     
+    
+    @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
+        //dismissKeyboard()
+        self.view.endEditing(true)
+    }
+
+    
 //  키보드 내리기
     private func dismissKeyboard(){
         // resign: 물러나다, 사임히다
@@ -129,12 +140,13 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
+   
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         // 검색 시작
         
         // 클릭 시 키보드 내리기
         dismissKeyboard()
-        
         
         // 검색어 있는지 없는지 확인
         guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else {return}
@@ -148,7 +160,7 @@ extension SearchViewController: UISearchBarDelegate {
         // 디코딩 + 파싱 호출
         SearchAPI.search(searchTerm) { movies in
             // CollectionView로 표현하기
-            print("---> 몇개?:  \(movies.count), 첫 번째: \(movies)")
+//            print("---> 몇개?:  \(movies.count), 첫 번째: \(movies)")
             // GCD
             DispatchQueue.main.async {
                 self.movies = movies
