@@ -21,6 +21,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalDurationLabel: UILabel!
     
+    // 싱글톤 
     let simplePlayer = SimplePlayer.shared
     
     var timeObserver: Any?
@@ -32,7 +33,7 @@ class PlayerViewController: UIViewController {
  
         simplePlayer.playerViewPlayer(playerView)
         updateTime(time: CMTime.zero)
-        // TODO: TimeObserver 구현
+        // TimeObserver 구현
         // CMTime -- seconds, preferrendTimescale 시간과 분할 1초를 10개로 -> 0.1초
         // DispatchQueue.main -- 0.1초마다 UIrable을 업데이트 시킬것인데 main 쓰레드에게 0.1초마다 알려주겠다
         
@@ -121,7 +122,7 @@ class PlayerViewController: UIViewController {
     }
     
     func updatePlayButton() {
-        // TODO: 플레이버튼 업데이트 UI작업 > 재생/멈춤
+        // 플레이버튼 업데이트 UI작업 > 재생/멈춤
         if simplePlayer.isPlaying {
             playButton.isSelected = true
         } else {

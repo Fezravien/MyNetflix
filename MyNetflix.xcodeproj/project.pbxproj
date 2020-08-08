@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA03BE1F24CB1D4100ACBB63 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BA03BE1E24CB1D4100ACBB63 /* Kingfisher */; };
 		BA03BE4324CD402200ACBB63 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */; };
+		BA46653124DEB02900175832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BA46653024DEB02900175832 /* Alamofire */; };
 		BA4CC0CD24CDA75D009BEA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA4CC0CC24CDA75D009BEA45 /* GoogleService-Info.plist */; };
 		BA4CC0CF24CDA9DB009BEA45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */; };
 		BA528A4724D71E19007D87F1 /* seeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA528A4624D71E19007D87F1 /* seeMoreViewController.swift */; };
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA46653124DEB02900175832 /* Alamofire in Frameworks */,
 				BA03BE1F24CB1D4100ACBB63 /* Kingfisher in Frameworks */,
 				D45A01A06B119B29CC8DBECF /* Pods_MyNetflix.framework in Frameworks */,
 			);
@@ -100,9 +102,9 @@
 				BAAAEFD624C9C68D000937AB /* SceneDelegate.swift */,
 				BAAAEFDA24C9C68D000937AB /* Main.storyboard */,
 				BAAAEFEC24C9C7EC000937AB /* HomeViewController.swift */,
+				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
 				BAAAEFEE24C9C813000937AB /* SearchViewController.swift */,
 				BA4CC0CE24CDA9DB009BEA45 /* HistoryViewController.swift */,
-				BAAAEFF024C9C82B000937AB /* RecommendListViewController.swift */,
 				BA03BE4224CD402200ACBB63 /* UpComingViewController.swift */,
 				BA528A4624D71E19007D87F1 /* seeMoreViewController.swift */,
 				BAAAEFF824C9C8F6000937AB /* Player.storyboard */,
@@ -146,6 +148,7 @@
 			name = MyNetflix;
 			packageProductDependencies = (
 				BA03BE1E24CB1D4100ACBB63 /* Kingfisher */,
+				BA46653024DEB02900175832 /* Alamofire */,
 			);
 			productName = MyNetflix;
 			productReference = BAAAEFD124C9C68D000937AB /* MyNetflix.app */;
@@ -177,6 +180,7 @@
 			mainGroup = BAAAEFC824C9C68D000937AB;
 			packageReferences = (
 				BA03BE1D24CB1D4100ACBB63 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BA46652F24DEB02900175832 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BAAAEFD224C9C68D000937AB /* Products */;
 			projectDirPath = "";
@@ -470,6 +474,14 @@
 				minimumVersion = 5.14.1;
 			};
 		};
+		BA46652F24DEB02900175832 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -477,6 +489,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BA03BE1D24CB1D4100ACBB63 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		BA46653024DEB02900175832 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA46652F24DEB02900175832 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -104,7 +104,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Usz-I6-rNT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ATk-3F-tK1"/>
                     <connections>
                         <outlet property="closeButton" destination="qQk-IV-lb3" id="8dB-Uf-Hcx"/>
                         <outlet property="controlView" destination="j6e-0G-PhO" id="GFi-eg-w8K"/>

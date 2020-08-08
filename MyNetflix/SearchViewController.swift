@@ -10,10 +10,12 @@ import UIKit
 import Kingfisher
 import AVFoundation
 import FirebaseDatabase
+import Alamofire
+
 
 class SearchViewController: UIViewController {
     @IBOutlet var touchDismiss: UITapGestureRecognizer!
-    
+   
     let db = Database.database().reference().child("searchHistory")
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,7 +29,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
 
@@ -72,7 +73,6 @@ class ResultCell: UICollectionViewCell {
 // 클릭시 반응
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         
         // movie item을 가지고 playerViewControler를 띄워서 전달해줘야한다
         // presenting player vc
@@ -126,13 +126,10 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 // 검색어를 입력하고 버튼 클릭시 ViewController에게 알려주는 메소드
 extension SearchViewController: UISearchBarDelegate {
     
-    
     @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
-        //dismissKeyboard()
-        self.view.endEditing(true)
+        dismissKeyboard()
     }
 
-    
 //  키보드 내리기
     private func dismissKeyboard(){
         // resign: 물러나다, 사임히다
@@ -140,14 +137,11 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-   
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         // 검색 시작
-        
         // 클릭 시 키보드 내리기
         dismissKeyboard()
-        
+
         // 검색어 있는지 없는지 확인
         guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else {return}
         
@@ -173,9 +167,7 @@ extension SearchViewController: UISearchBarDelegate {
                 // database에 id랜덤으로 생성하고 값은 시간으로 넣기
                 self.db.childByAutoId().setValue(["term": searchTerm, "timestamp": timestamp])
             }
-            
         }
-        
         //print("---> 검색어: \(searchBar)")
     }
 }
@@ -187,9 +179,48 @@ class SearchAPI {
     // 프로퍼티를 타입 자체와 연결할 수도 있다 이러한 프로퍼티를 Type Property라고 한다.
     // 타입 프로퍼티는 모든 타입이 사용할 수 있는 상수 프로퍼티(constants property) 또는 글로벌 변수 프로퍼티와 같이 특정 타입의 모든 인스턴스에 공통적인 값을 정의하는데 유용
 
+    
+  
     static func search (_ term: String, completion: @escaping ([Movie]) -> Void){
-        let session = URLSession(configuration: .default)
+          // URLSession을 이용한 API 통신
         
+//        let session = URLSession(configuration: .default)
+//
+//        var urlComponents = URLComponents(string: "https://itunes.apple.com/search?")!
+//        let mediaQuery = URLQueryItem(name: "media", value: "movie")
+//        let entityQuery = URLQueryItem(name: "entity", value: "movie")
+//        let termQuery = URLQueryItem(name: "term", value: term)
+//
+//        urlComponents.queryItems?.append(mediaQuery)
+//        urlComponents.queryItems?.append(entityQuery)
+//        urlComponents.queryItems?.append(termQuery)
+//
+//        let requestURL = urlComponents.url!
+//
+//        let dataTask = session.dataTask(with: requestURL) { data, response, error in
+//            let successRange = 200..<300
+//
+//            // response 메시지 안에서 statusCode 저장
+//            // statusCode가 200 ~ 299 안에 들어가는지 확인
+//            guard error == nil, let statusCode = (response as? HTTPURLResponse)?.statusCode, successRange.contains(statusCode) else {
+//                return completion([])
+//            }
+//
+//            guard let resultData = data else {
+//                return completion([])
+//            }
+//
+//            // data -> [Movie] -- 데이터 타입을 바꾸기 위해서 파싱이 필요하다. (Codable)
+//            let movies = parseMovies(resultData)
+//            // 리턴이 void이므로 .. 이렇게 넘긴다
+//            completion(movies)
+//
+//        }
+//        // 네트워킹 시작
+//        dataTask.resume()
+//    }
+    
+    // Alamofire를 이용한 API 통신
         var urlComponents = URLComponents(string: "https://itunes.apple.com/search?")!
         let mediaQuery = URLQueryItem(name: "media", value: "movie")
         let entityQuery = URLQueryItem(name: "entity", value: "movie")
@@ -201,27 +232,19 @@ class SearchAPI {
         
         let requestURL = urlComponents.url!
         
-        let dataTask = session.dataTask(with: requestURL) { data, response, error in
-            let successRange = 200..<300
-            
-            // response 메시지 안에서 statusCode 저장
-            // statusCode가 200 ~ 299 안에 들어가는지 확인
-            guard error == nil, let statusCode = (response as? HTTPURLResponse)?.statusCode, successRange.contains(statusCode) else {
-                return completion([])
+        let alamoSeesion = AF.request(requestURL)
+        
+        alamoSeesion.responseJSON { (response) in
+            switch response.result {
+            case .success(_):
+                let movies = parseMovies(response.data!)
+                completion(movies)
+                
+            case .failure(let e):
+                print(e.localizedDescription)
             }
-            
-            guard let resultData = data else {
-                return completion([])
-            }
-            
-            // data -> [Movie] -- 데이터 타입을 바꾸기 위해서 파싱이 필요하다. (Codable)
-            let movies = parseMovies(resultData)
-            // 리턴이 void이므로 .. 이렇게 넘긴다
-            completion(movies)
-            
         }
-        // 네트워킹 시작
-        dataTask.resume()
+        
     }
     
     static func parseMovies(_ data: Data) -> [Movie] {

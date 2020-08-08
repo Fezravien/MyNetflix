@@ -337,7 +337,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="hbZ-TH-XHG" id="U6e-wh-ODz"/>
                                     <outlet property="delegate" destination="hbZ-TH-XHG" id="ghF-Vh-8WI"/>
-                                    <outlet property="dragDelegate" destination="rWk-4a-Cos" id="QWY-TK-Vvt"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -354,7 +353,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wvn-s2-hdB"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="rWk-4a-Cos" appends="YES" id="jva-Cp-1oK"/>
+                            <outletCollection property="gestureRecognizers" destination="rWk-4a-Cos" appends="YES" id="nLg-aa-Xkl"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="1Jc-WO-2K5" userLabel="검색"/>
@@ -377,7 +376,6 @@
         <!--공개예정-->
         <scene sceneID="XNH-Oj-FFQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9zR-xL-xv0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="xsw-kg-mYv" userLabel="공개예정" customClass="UpComingViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GK8-TV-XyN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
@@ -453,6 +451,7 @@
                     <tabBarItem key="tabBarItem" title="공개예정" image="play.rectangle.fill" catalog="system" id="YMD-EO-OqC" userLabel="공개예정"/>
                     <size key="freeformSize" width="414" height="1600"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zR-xL-xv0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4728" y="281"/>
         </scene>
@@ -532,14 +531,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="setupCell" id="DON-tt-K7f" customClass="setupCell" customModule="MyNetflix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DON-tt-K7f" id="bMw-tl-w9h">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 찜한 콘텐츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOn-am-dcO">
-                                                    <rect key="frame" x="20" y="11" width="118" height="22"/>
+                                                    <rect key="frame" x="20" y="11" width="118" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>

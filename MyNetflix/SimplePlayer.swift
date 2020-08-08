@@ -9,7 +9,9 @@
 import AVFoundation
 
 class SimplePlayer {
-    // TODO: 싱글톤 만들기, 왜 만드는가?
+    // 싱글톤 만들기, 왜 만드는가?
+    // 클래스의 인스턴스가 딱 하나만 존재할 때 이 인스턴스로의 접근을 쉽게 할 수 있도록 만들어주는 방법
+    
     static let shared = SimplePlayer()
     
     private let player = AVPlayer()

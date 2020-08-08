@@ -15,8 +15,6 @@ class SeeMoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
 }
 
 extension SeeMoreViewController: UITableViewDataSource {
@@ -29,7 +27,6 @@ extension SeeMoreViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell", for: indexPath) as? setupCell else {
             return UITableViewCell()
         }
-        
         cell.setupTerm.text = setupTerms[indexPath.row]
        
         return cell
