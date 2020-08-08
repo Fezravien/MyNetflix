@@ -7,6 +7,7 @@ Making it like Netflix
 - Codable
 - Itunes API
 - Kingfisher(Swift Package Dependencise)
+- Alamofire(Swift Package Dependencise)
 - Firebase
 
 ## Play
