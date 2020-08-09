@@ -2,13 +2,17 @@
 Making it like Netflix 
 
 ## Features
-- AVFoundation
-- URLcomponents
+- Storyborad
+- AVFoundation(AVPlayer)
+- URLComponents
 - Codable
 - Itunes API
 - Kingfisher(Swift Package Dependencise)
-- Firebase
+- Alamofire(Swift Package Dependencise)
+- Firebase(Cocoapods)
 
-## Play
-![MyNetflix1](https://user-images.githubusercontent.com/44525561/89144333-5c5ba580-d588-11ea-8c02-7739c94049b3.gif) ![MyNetflix2](https://user-images.githubusercontent.com/44525561/89144583-223ed380-d589-11ea-96dc-41648238a548.gif)
+## Home, Search, Database
+![MyNetflixHome](https://user-images.githubusercontent.com/44525561/89731810-f473f600-da84-11ea-9aab-0e980a7cbbf0.gif) ![MyNetflixSearch](https://user-images.githubusercontent.com/44525561/89731813-f6d65000-da84-11ea-9d83-f997df074d71.gif) ![MyNetflixDatabase](https://user-images.githubusercontent.com/44525561/89731814-f938aa00-da84-11ea-8147-b13f3c076d24.gif)
+
+
 
