@@ -112,17 +112,15 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         
 //      Frame = 슈퍼뷰(상위뷰)의 좌표계에서 위치와 크기를 나타낸다.
 //      Bounds = 자기자신의 좌표계에서 위치와 크기를 나타낸다.
-        let width = (collectionView.bounds.width - margin * 2 - itemSpacing * 2) / 3
+        let width = (collectionView.frame.width - margin * 2 - itemSpacing * 2) / 3
         let height = width * 10/7
         
         return CGSize(width: width, height: height)
     }
-    
 }
 
-
 // Search Bar에서 일어나는 결과들을 ViewControler에게 위임시켜서 거기에 해당하는 일들을 ViewControler한태 담당시키기
-// 클릭시 반응을 가지고 작업하려면 ViewControler와 Delegate 연결 시켜줘야함
+// 클릭시 반응을 가지고 작업하려면 ViewControler와 Delegate 연결시켜줘야함
 // 검색어를 입력하고 버튼 클릭시 ViewController에게 알려주는 메소드
 extension SearchViewController: UISearchBarDelegate {
     
@@ -178,9 +176,7 @@ class SearchAPI {
     // @escaping -- completion안에 있는 코드 블럭이 메소드 밖에서 실행될 수도 있다.
     // 프로퍼티를 타입 자체와 연결할 수도 있다 이러한 프로퍼티를 Type Property라고 한다.
     // 타입 프로퍼티는 모든 타입이 사용할 수 있는 상수 프로퍼티(constants property) 또는 글로벌 변수 프로퍼티와 같이 특정 타입의 모든 인스턴스에 공통적인 값을 정의하는데 유용
-
     
-  
     static func search (_ term: String, completion: @escaping ([Movie]) -> Void){
           // URLSession을 이용한 API 통신
         

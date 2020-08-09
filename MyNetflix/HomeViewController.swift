@@ -21,11 +21,13 @@ class HomeViewController: UIViewController {
             awardRecommendListViewController = destinationVC
             awardRecommendListViewController.viewModel.updateType(.award)
             awardRecommendListViewController.viewModel.fetchItems()
+            
         } else if segue.identifier == "hot" {
             let destinationVC = segue.destination as? RecommendListViewController
             hotRecommendListViewController = destinationVC
             hotRecommendListViewController.viewModel.updateType(.hot)
             hotRecommendListViewController.viewModel.fetchItems()
+            
         } else if segue.identifier == "my" {
             let destinationVC = segue.destination as? RecommendListViewController
             myRecommendListViewController = destinationVC
@@ -38,7 +40,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
-
     @IBAction func playButtonTapped(_ sender: Any) {
         // interstella에 대한 정보를 검색 API로 가져온다
         // 거기서 interstella 객체 하나를 가져온다

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class PlayerViewController: UIViewController {
-    var touchScreenCount = 0
+    var touchScreenCount = false
     
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var controlView: UIView!
@@ -78,7 +78,7 @@ class PlayerViewController: UIViewController {
         totalDurationLabel.text = secondsToString(sec: simplePlayer.totalDurationTime)  // 39.2045  >> 00:39
         
         if isSeeking == false {
-            // 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
+            // 슬라이더가 업데이트 됨, 따라서 시킹이 아닐때마다 슬라이더 업데이트하자
             // 슬라이더 정보 업데이트
             timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
         }
@@ -115,7 +115,6 @@ class PlayerViewController: UIViewController {
         }
     }
         
-
     @IBAction func closeButtonTapped(_ sender: Any) {
         simplePlayer.reset(playerView)
         dismiss(animated: false, completion: nil)
@@ -132,14 +131,14 @@ class PlayerViewController: UIViewController {
         
     // 터치 했을때 영상 컨트롤 버튼들 끄고/키기
     @IBAction func touchScreen(_ sender: Any) {
-        if touchScreenCount == 0 {
+        if touchScreenCount == false {
             
             ControllButtonDisVisible()
-            touchScreenCount += 1
+            touchScreenCount = true
         } else {
             
             ControllButtonVisible()
-            touchScreenCount -= 1 
+            touchScreenCount = false
         }
     }
     

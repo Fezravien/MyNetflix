@@ -46,8 +46,7 @@ extension RecommendListViewController: UICollectionViewDataSource {
 
 extension RecommendListViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        // 정적인 이미지
+        // 정적인 ...
         // 추후 수정 바람
         SearchAPI.search("Totoro") { movies in
             guard let awards = movies.first else { return }
@@ -65,7 +64,6 @@ extension RecommendListViewController:UICollectionViewDelegate{
         }
     }
 }
-
 
 extension RecommendListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -87,7 +85,7 @@ class RecommentListViewModel {
             }
         }
     }
-    // default
+    
     private (set) var type: RecommendingType = .award
     private var items: [DummyItem] = []
     
@@ -117,9 +115,7 @@ class RecommendCell: UICollectionViewCell {
     }
 }
 
-
 class MovieFetcher {
-    
     static func fetch(_ type: RecommentListViewModel.RecommendingType) -> [DummyItem] {
         switch type {
         case .award:

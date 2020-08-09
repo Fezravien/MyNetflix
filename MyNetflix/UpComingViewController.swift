@@ -18,9 +18,9 @@ class UpComingViewController: UIViewController {
             // 연결시켜주는 코드 
             let destinationVC = segue.destination as? RecommendListViewController
             awardRecommendListViewController = destinationVC
-            
             awardRecommendListViewController.viewModel.updateType(.award)
             awardRecommendListViewController.viewModel.fetchItems()
+            
         } else if segue.identifier == "hot2" {
             let destinationVC = segue.destination as? RecommendListViewController
             hotRecommendListViewController = destinationVC
@@ -28,25 +28,10 @@ class UpComingViewController: UIViewController {
             hotRecommendListViewController.viewModel.fetchItems()
         }
     }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -10,8 +10,11 @@ import AVFoundation
 
 class SimplePlayer {
     // 싱글톤 만들기, 왜 만드는가?
-    // 클래스의 인스턴스가 딱 하나만 존재할 때 이 인스턴스로의 접근을 쉽게 할 수 있도록 만들어주는 방법
-    
+    // 애플리케이션에서 인스턴스를 하나만 만들어 사용하기 위한 패턴
+    // - 메모리 낭비를 방지한다.
+    // - 다른 클래스의 인스턴스들이 데이터를 공유하기 쉽다.
+    // - 두 번째 이용시부터는 객체 로딩 시간이 현저하게 줄어 성능이 좋아진다.
+
     static let shared = SimplePlayer()
     
     private let player = AVPlayer()
@@ -54,6 +57,7 @@ class SimplePlayer {
     }
     
     func play() {
+        
         player.play()
     }
     
